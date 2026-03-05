@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
@@ -12,9 +12,17 @@ import Quote from './pages/Quote';
 import Products from './pages/Products';
 import ItemDetail from './pages/ItemDetail';
 import BrandDetail from './pages/BrandDetail';
+import Admin from './pages/Admin';
 import './App.css';
 
 function App() {
+  const location = useLocation();
+  const isAdmin = location.pathname === '/admin';
+
+  if (isAdmin) {
+    return <Admin />;
+  }
+
   return (
     <>
       <Helmet>
@@ -23,21 +31,21 @@ function App() {
         <meta name="keywords" content="procurement, supply chain, trading, UAE, Dubai, Al Safa Global, business solutions, logistics" />
         <meta name="author" content="Al Safa Global General Trading FZ LLC" />
         <link rel="canonical" href="https://al-safa-global.vercel.app/" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Al Safa Global - Procurement & Supply Chain Solutions" />
         <meta property="og:description" content="Your Trusted Partner in Procurement & Supply Chain Solutions. We provide comprehensive procurement, supply chain management, and trading services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://al-safa-global.vercel.app/" />
         <meta property="og:image" content="https://al-safa-global.vercel.app/images/logo.png" />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Al Safa Global - Procurement & Supply Chain Solutions" />
         <meta name="twitter:description" content="Your Trusted Partner in Procurement & Supply Chain Solutions. We provide comprehensive procurement, supply chain management, and trading services." />
         <meta name="twitter:image" content="https://al-safa-global.vercel.app/images/logo.png" />
       </Helmet>
-      
+
       <ScrollToTop />
       <div className="App">
         <Header />

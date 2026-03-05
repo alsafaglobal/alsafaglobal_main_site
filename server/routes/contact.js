@@ -1,6 +1,5 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-const Contact = require('../models/Contact');
 const sendEmail = require('../utils/email');
 const router = express.Router();
 
@@ -68,20 +67,7 @@ router.post('/', validateContact, async (req, res) => {
       division = 'General Inquiry'
     } = req.body;
 
-    // Create contact record
-    const contact = new Contact({
-      name,
-      email,
-      phone,
-      company,
-      subject,
-      message,
-      division,
-      ipAddress: req.ip,
-      userAgent: req.get('User-Agent')
-    });
-
-    await contact.save();
+    const now = new Date();
 
     // Send email notification
     const emailData = {
@@ -96,11 +82,10 @@ router.post('/', validateContact, async (req, res) => {
         subject,
         message,
         division,
-        date: contact.formattedDate
+        date: now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
       }
     };
 
-    // Send email (non-blocking)
     sendEmail(emailData).catch(err => {
       console.error('Email sending failed:', err);
     });
@@ -125,12 +110,11 @@ router.post('/', validateContact, async (req, res) => {
       success: true,
       message: 'Thank you for your message. We will get back to you soon!',
       data: {
-        id: contact._id,
-        name: contact.name,
-        email: contact.email,
-        subject: contact.subject,
-        division: contact.division,
-        submittedAt: contact.createdAt
+        name,
+        email,
+        subject,
+        division,
+        submittedAt: now
       }
     });
 
@@ -139,54 +123,6 @@ router.post('/', validateContact, async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to submit contact form. Please try again later.'
-    });
-  }
-});
-
-// GET /api/contact - Get contact statistics (admin only)
-router.get('/stats', async (req, res) => {
-  try {
-    const stats = await Contact.aggregate([
-      {
-        $group: {
-          _id: null,
-          total: { $sum: 1 },
-          new: {
-            $sum: { $cond: [{ $eq: ['$status', 'new'] }, 1, 0] }
-          },
-          read: {
-            $sum: { $cond: [{ $eq: ['$status', 'read'] }, 1, 0] }
-          },
-          replied: {
-            $sum: { $cond: [{ $eq: ['$status', 'replied'] }, 1, 0] }
-          }
-        }
-      }
-    ]);
-
-    const divisionStats = await Contact.aggregate([
-      {
-        $group: {
-          _id: '$division',
-          count: { $sum: 1 }
-        }
-      },
-      { $sort: { count: -1 } }
-    ]);
-
-    res.json({
-      success: true,
-      data: {
-        overview: stats[0] || { total: 0, new: 0, read: 0, replied: 0 },
-        divisions: divisionStats
-      }
-    });
-
-  } catch (error) {
-    console.error('Contact stats error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Failed to fetch contact statistics'
     });
   }
 });
