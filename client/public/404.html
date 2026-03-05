@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Al Safa Global</title>
+    <script>
+      // Single-page app 404 redirect trick
+      // Save the full URL so index.html can restore it via History API
+      sessionStorage.redirect = location.href;
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>
