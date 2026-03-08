@@ -21,13 +21,13 @@ const HeroSection = ({
       {/* Landing Page Banner Image */}
       <section className="landing-banner">
         <img 
-          src={bannerImageUrl || "/images/banner.jpg"} 
-          alt={bannerAlt || "Al Safa Global"} 
+          src={bannerImageUrl || "/images/hero-landing-image.jpg"}
+          alt={bannerAlt || "Al Safa Global"}
           className="landing-banner-image"
           onLoad={() => console.log('Hero landing image loaded successfully')}
           onError={(e) => {
             console.error('Error loading hero landing image:', e);
-            console.error('Attempted URL:', bannerImageUrl || "/images/banner.jpg");
+            console.error('Attempted URL:', bannerImageUrl || "/images/hero-landing-image.jpg");
           }}
         />
       </section>
@@ -137,13 +137,13 @@ const HeroSection = ({
               <div className="hero-image-container">
                 <div className="hero-main-image">
                   <img 
-                    src={heroSideImageUrl || "/images/hero.png"} 
+                    src={heroSideImageUrl || "/images/global-procurement.png"} 
                     alt={heroSideAlt || "Global Procurement"} 
                     className="hero-image"
                     onLoad={() => console.log('Mobile global procurement image loaded successfully')}
                     onError={(e) => {
                       console.error('Error loading mobile global procurement image:', e);
-                      console.error('Attempted URL:', heroSideImageUrl || "/images/hero.png");
+                      console.error('Attempted URL:', heroSideImageUrl || "/images/global-procurement.png");
                     }}
                   />
                 </div>
@@ -196,13 +196,13 @@ const HeroSection = ({
             <div className="hero-image-container">
               <div className="hero-main-image">
                 <img 
-                  src={heroSideImageUrl || "/images/hero.png"} 
+                  src={heroSideImageUrl || "/images/global-procurement.png"} 
                   alt={heroSideAlt || "Global Procurement"} 
                   className="hero-image"
                   onLoad={() => console.log('Desktop global procurement image loaded successfully')}
                   onError={(e) => {
                     console.error('Error loading desktop global procurement image:', e);
-                    console.error('Attempted URL:', heroSideImageUrl || "/images/hero.png");
+                    console.error('Attempted URL:', heroSideImageUrl || "/images/global-procurement.png");
                   }}
                 />
               </div>
