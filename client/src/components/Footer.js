@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  FiMail, 
-  FiMapPin, 
-  FiPhone, 
-  FiGlobe
+import {
+  FiMail,
+  FiMapPin,
+  FiPhone
 } from 'react-icons/fi';
 import './Footer.css';
 

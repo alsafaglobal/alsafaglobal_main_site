@@ -19,7 +19,6 @@ import { client } from '../sanityClient';
 import { aboutPageQuery } from '../queries/aboutPageQuery';
 import { homePageQuery } from '../queries/homePageQuery';
 import { highlightBrand } from '../components/BrandText';
-import BrandText from '../components/BrandText';
 
 const About = () => {
   const [ref, inView] = useInView({

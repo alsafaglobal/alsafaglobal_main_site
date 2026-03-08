@@ -6,7 +6,6 @@ import { client } from '../sanityClient';
 import { contactPageQuery } from '../queries/contactPageQuery';
 import { homePageQuery } from '../queries/homePageQuery';
 import { highlightBrand } from '../components/BrandText';
-import BrandText from '../components/BrandText';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
