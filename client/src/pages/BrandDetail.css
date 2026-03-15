@@ -23,15 +23,16 @@
 
 .brand-detail-content {
   display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .brand-detail-image {
   width: 360px;
-  min-width: 300px;
+  max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
   background: #f0f0f0;
@@ -42,11 +43,12 @@
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .brand-detail-info {
-  flex: 1;
+  width: 100%;
+  text-align: left;
 }
 
 .brand-detail-name {
@@ -110,23 +112,9 @@
     padding-top: 5rem;
   }
 
-  .brand-detail-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .brand-detail-image {
     width: 100%;
-    min-width: auto;
-    max-width: 400px;
-  }
-
-  .brand-detail-info {
-    text-align: center;
-  }
-
-  .brand-detail-model {
-    text-align: center;
+    max-width: 360px;
   }
 
   .brand-detail-name {

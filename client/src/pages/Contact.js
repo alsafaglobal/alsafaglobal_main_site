@@ -31,62 +31,46 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Create email subject
-      const subject = `${formData.inquiryType} - ${formData.division}`;
-      
-      // Create email body with all form details
-      const emailBody = `
-Dear Al Safa Global Team,
-
-I would like to submit an inquiry through your website contact form.
-
-CONTACT DETAILS:
-• Name: ${formData.name}
-• Email: ${formData.email}
-• Company: ${formData.company || 'Not provided'}
-• Phone: ${formData.phone || 'Not provided'}
-
-INQUIRY DETAILS:
-• Division of Interest: ${formData.division}
-• Type of Inquiry: ${formData.inquiryType}
-
-MESSAGE:
-${formData.message}
-
----
-This message was sent from the Al Safa Global website contact form.
-Submitted on: ${new Date().toLocaleString()}
-      `.trim();
-
-      // Create mailto URL
-      const mailtoUrl = `mailto:info@alsafaglobal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-      // Open default email client
-      window.open(mailtoUrl, '_blank');
-
-      // Show success message
-      setSubmitStatus('success');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        division: '',
-        inquiryType: '',
-        message: ''
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          subject: `${formData.inquiryType} - ${formData.division}`,
+          message: formData.message,
+          division: formData.division
+        })
       });
 
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          division: '',
+          inquiryType: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        console.error('Submission error:', data);
+      }
     } catch (error) {
       setSubmitStatus('error');
-      console.error('Error opening email client:', error);
+      console.error('Contact form error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -283,8 +267,8 @@ Submitted on: ${new Date().toLocaleString()}
               
               {submitStatus === 'success' && (
                 <div className="alert alert-success">
-                  <h3>Email Client Opened!</h3>
-                  <p>Your default email client should have opened with a pre-filled message. Please review and send the email to info@alsafaglobal.com</p>
+                  <h3>Message Sent!</h3>
+                  <p>Thank you for reaching out. We have received your message and will get back to you within 24 hours.</p>
                 </div>
               )}
 
