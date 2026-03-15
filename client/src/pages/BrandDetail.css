@@ -87,7 +87,7 @@
 }
 
 .brand-detail-spec-text.collapsed {
-  max-height: 4.8em;
+  max-height: 12em;
   overflow: hidden;
   position: relative;
 }
