@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { client } from '../sanityClient';
 import { allItemsRawQuery } from '../queries/productsPageQuery';
@@ -10,6 +10,7 @@ const slugify = (s) =>
 
 const BrandDetail = () => {
   const { slug, brandIndex } = useParams();
+  const navigate = useNavigate();
   const [brand, setBrand] = useState(null);
   const [loading, setLoading] = useState(true);
   const [specExpanded, setSpecExpanded] = useState(false);
@@ -90,8 +91,16 @@ const BrandDetail = () => {
                 </div>
               )}
               {brand.showPrice !== false && brand.price && (
-                <div className="brand-detail-price">
-                  <span>{brand.price}</span>
+                <div className="brand-detail-price-row">
+                  <div className="brand-detail-price">
+                    <span>{brand.price}</span>
+                  </div>
+                  <button
+                    className="brand-detail-quote-btn"
+                    onClick={() => navigate('/quote')}
+                  >
+                    Get a Quote
+                  </button>
                 </div>
               )}
             </div>
