@@ -83,6 +83,42 @@
   color: var(--text-secondary, #555);
   line-height: 1.7;
   white-space: pre-line;
+  margin: 0;
+}
+
+.brand-detail-spec-text.collapsed {
+  max-height: 4.8em;
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-detail-spec-text.collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2em;
+  background: linear-gradient(transparent, #fff);
+}
+
+.brand-detail-spec-text.expanded {
+  max-height: none;
+}
+
+.brand-spec-toggle {
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--primary-blue, #1e3a8a);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.brand-spec-toggle:hover {
+  color: var(--primary-gold, #f59e0b);
 }
 
 .brand-detail-price span {

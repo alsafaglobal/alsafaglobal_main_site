@@ -12,6 +12,7 @@ const BrandDetail = () => {
   const { slug, brandIndex } = useParams();
   const [brand, setBrand] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [specExpanded, setSpecExpanded] = useState(false);
 
   useEffect(() => {
     client
@@ -77,7 +78,15 @@ const BrandDetail = () => {
               {brand.showSpecification !== false && brand.specification && (
                 <div className="brand-detail-spec">
                   <h3>Specification</h3>
-                  <p>{brand.specification}</p>
+                  <div className={`brand-detail-spec-text ${specExpanded ? 'expanded' : 'collapsed'}`}>
+                    <p>{brand.specification}</p>
+                  </div>
+                  <button
+                    className="brand-spec-toggle"
+                    onClick={() => setSpecExpanded(prev => !prev)}
+                  >
+                    {specExpanded ? 'View Less ▲' : 'View More ▼'}
+                  </button>
                 </div>
               )}
               {brand.showPrice !== false && brand.price && (
