@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -10,40 +10,13 @@ import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [subscribeEmail, setSubscribeEmail] = useState('');
-  const [subscribeStatus, setSubscribeStatus] = useState(null); // null | 'loading' | 'success' | 'error'
-  const [subscribeMessage, setSubscribeMessage] = useState('');
-
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    setSubscribeStatus('loading');
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: subscribeEmail })
-      });
-      const data = await res.json();
-      if (data.success) {
-        setSubscribeStatus('success');
-        setSubscribeMessage(data.message);
-        setSubscribeEmail('');
-      } else {
-        setSubscribeStatus('error');
-        setSubscribeMessage(data.message || 'Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      setSubscribeStatus('error');
-      setSubscribeMessage('Failed to subscribe. Please try again later.');
-    }
-  };
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           {/* Company Info */}
-          <motion.div 
+          <motion.div
             className="footer-section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +52,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div 
+          <motion.div
             className="footer-section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +69,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Services */}
-          <motion.div 
+          <motion.div
             className="footer-section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +87,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Footer Image */}
-          <motion.div 
+          <motion.div
             className="footer-section footer-image-section"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,48 +95,14 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-image-wrapper">
-              <img 
-                src="/images/footer-image.jpg" 
-                alt="Al Safa Global" 
+              <img
+                src="/images/footer-image.jpg"
+                alt="Al Safa Global"
                 className="footer-image"
               />
             </div>
           </motion.div>
         </div>
-
-        {/* Newsletter Subscribe */}
-        <motion.div
-          className="footer-subscribe"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <h4>Stay Updated</h4>
-          <p>Subscribe to receive news and updates from Al Safa Global.</p>
-          <form className="subscribe-form" onSubmit={handleSubscribe}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={subscribeEmail}
-              onChange={(e) => setSubscribeEmail(e.target.value)}
-              required
-              disabled={subscribeStatus === 'loading' || subscribeStatus === 'success'}
-            />
-            <button
-              type="submit"
-              disabled={subscribeStatus === 'loading' || subscribeStatus === 'success'}
-            >
-              {subscribeStatus === 'loading' ? 'Sending...' : subscribeStatus === 'success' ? 'Subscribed!' : 'Subscribe'}
-            </button>
-          </form>
-          {subscribeStatus === 'success' && (
-            <p className="subscribe-msg subscribe-success">{subscribeMessage}</p>
-          )}
-          {subscribeStatus === 'error' && (
-            <p className="subscribe-msg subscribe-error">{subscribeMessage}</p>
-          )}
-        </motion.div>
 
         {/* Footer Bottom */}
         <motion.div
@@ -182,4 +121,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
