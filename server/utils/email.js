@@ -1,17 +1,6 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-// Create transporter
-const createTransporter = () => {
-  return nodemailer.createTransporter({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-};
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
 // Email templates
 const emailTemplates = {
@@ -370,27 +359,30 @@ const emailTemplates = {
 // Send email function
 const sendEmail = async (emailData) => {
   try {
-    const transporter = createTransporter();
-    
-    const { to, subject, template, context } = emailData;
-    
+    const resend = getResend();
+    const { to, template, context } = emailData;
+
     if (!emailTemplates[template]) {
       throw new Error(`Email template '${template}' not found`);
     }
-    
+
     const templateData = emailTemplates[template](context);
-    
-    const mailOptions = {
-      from: `"Al Safa Global" <${process.env.EMAIL_FROM}>`,
-      to: to,
+
+    const { data, error } = await resend.emails.send({
+      from: 'Al Safa Global <info@alsafaglobal.com>',
+      to,
       subject: templateData.subject,
-      html: templateData.html
-    };
-    
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully:', info.messageId);
-    return info;
-    
+      html: templateData.html,
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      throw new Error(error.message);
+    }
+
+    console.log('Email sent successfully:', data.id);
+    return data;
+
   } catch (error) {
     console.error('Email sending failed:', error);
     throw error;
