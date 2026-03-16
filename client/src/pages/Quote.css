@@ -81,6 +81,28 @@
   background-clip: text;
 }
 
+.quote-product-info {
+  background: #f0f4ff;
+  border-left: 4px solid var(--primary-blue, #1e3a8a);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote-product-info h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-blue, #1e3a8a);
+  margin-bottom: 0.5rem;
+}
+
+.quote-product-info p {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0.2rem 0;
+}
+
 .quote-form {
   display: flex;
   flex-direction: column;

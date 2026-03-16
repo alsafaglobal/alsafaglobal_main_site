@@ -97,7 +97,13 @@ const BrandDetail = () => {
                   </div>
                   <button
                     className="brand-detail-quote-btn"
-                    onClick={() => navigate('/quote')}
+                    onClick={() => navigate('/quote', {
+                      state: {
+                        brandName: brand.brandName,
+                        modelName: brand.modelName,
+                        price: brand.price
+                      }
+                    })}
                   >
                     Get a Quote
                   </button>
