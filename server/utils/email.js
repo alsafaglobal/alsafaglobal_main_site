@@ -211,6 +211,36 @@ const emailTemplates = {
     `
   }),
 
+  'quote-request': (context) => ({
+    subject: `New Quote Request - ${context.brandName} ${context.modelName}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+        <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+          <h2 style="color: #2c3e50; margin-bottom: 20px;">New Quote Request</h2>
+
+          <div style="background-color: #f0f4ff; padding: 20px; border-radius: 8px; border-left: 4px solid #1e3a8a; margin-bottom: 20px;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Product Details</h3>
+            <p><strong>Brand:</strong> ${context.brandName}</p>
+            <p><strong>Model:</strong> ${context.modelName}</p>
+            <p><strong>Price:</strong> ${context.price}</p>
+          </div>
+
+          <div style="background-color: #ecf0f1; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <h3 style="color: #34495e; margin-top: 0;">Customer Details</h3>
+            <p><strong>Name:</strong> ${context.name}</p>
+            <p><strong>Email:</strong> ${context.email}</p>
+            <p><strong>Phone:</strong> ${context.phone}</p>
+            <p><strong>Date:</strong> ${context.date}</p>
+          </div>
+
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ecf0f1; text-align: center;">
+            <p style="color: #7f8c8d; font-size: 14px;">This quote request was submitted from the Al Safa Global website.</p>
+          </div>
+        </div>
+      </div>
+    `
+  }),
+
   'newsletter-welcome': (context) => ({
     subject: 'Welcome to Al Safa Global Newsletter',
     html: `

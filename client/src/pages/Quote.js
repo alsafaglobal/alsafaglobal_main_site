@@ -26,24 +26,17 @@ const Quote = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const productInfo = product
-      ? `Product: ${product.brandName || ''} ${product.modelName || ''}\nPrice: ${product.price || 'N/A'}`
-      : 'No specific product selected';
-
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          company: '',
-          subject: product
-            ? `Quote Request - ${product.brandName} ${product.modelName}`
-            : 'Quote Request',
-          message: `${productInfo}\n\nCustomer is requesting a quote for the above product.`,
-          division: 'General Inquiry'
+          brandName: product?.brandName || '',
+          modelName: product?.modelName || '',
+          price: product?.price || ''
         })
       });
 
