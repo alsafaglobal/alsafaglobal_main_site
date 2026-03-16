@@ -261,7 +261,7 @@ const Contact = () => {
                     <p key={i}>{p?.children?.[0]?.text || ''}</p>
                   ))
                 : (
-                  <p>Fill out the form below and click "Send Message" to open your email client with a pre-filled message.</p>
+                  <p>Fill out the form below and we'll get back to you as soon as possible.</p>
                 )
               }
               
