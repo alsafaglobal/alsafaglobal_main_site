@@ -211,6 +211,39 @@ const emailTemplates = {
     `
   }),
 
+  'quote-confirmation': (context) => ({
+    subject: 'Your Quote Request Received - Al Safa Global',
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+        <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: #2c3e50; margin-bottom: 10px;">Al Safa Global</h1>
+            <p style="color: #7f8c8d; font-size: 18px;">Your Trusted Partner in Procurement & Supply Chain Solutions</p>
+          </div>
+          <div style="background-color: #e8f5e8; padding: 20px; border-radius: 8px; border-left: 4px solid #27ae60; margin-bottom: 20px;">
+            <h2 style="color: #27ae60; margin-top: 0;">Quote Request Received!</h2>
+            <p style="color: #2c3e50; line-height: 1.6;">Dear ${context.name},</p>
+            <p style="color: #2c3e50; line-height: 1.6;">Thank you for your interest! We have received your quote request and our team will get back to you within 24 hours.</p>
+          </div>
+          <div style="background-color: #f0f4ff; padding: 20px; border-radius: 8px; border-left: 4px solid #1e3a8a; margin-bottom: 20px;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Product You Requested</h3>
+            <p style="color: #2c3e50;"><strong>Brand:</strong> ${context.brandName}</p>
+            <p style="color: #2c3e50;"><strong>Model:</strong> ${context.modelName}</p>
+            <p style="color: #2c3e50;"><strong>Price:</strong> ${context.price}</p>
+          </div>
+          <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1;">
+            <p style="color: #7f8c8d; font-size: 14px;">
+              <strong>Al Safa Global General Trading FZ LLC</strong><br>
+              Compass Building, Al Shohada Road<br>
+              Al Hamra Industrial Zone-FZ, Ras Al Khaimah, UAE<br>
+              Email: info@alsafaglobal.com
+            </p>
+          </div>
+        </div>
+      </div>
+    `
+  }),
+
   'quote-request': (context) => ({
     subject: `New Quote Request - ${context.brandName} ${context.modelName}`,
     html: `
