@@ -28,9 +28,10 @@ const validateContact = [
     .isLength({ min: 5, max: 200 })
     .withMessage('Subject must be between 5 and 200 characters'),
   body('message')
+    .optional()
     .trim()
-    .isLength({ min: 10, max: 2000 })
-    .withMessage('Message must be between 10 and 2000 characters'),
+    .isLength({ max: 2000 })
+    .withMessage('Message cannot exceed 2000 characters'),
   body('division')
     .optional()
     .isIn([
