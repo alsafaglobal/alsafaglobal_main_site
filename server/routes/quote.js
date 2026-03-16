@@ -36,9 +36,8 @@ router.post('/', [
     });
 
     // Send confirmation to customer
-    sendEmail({
+    await sendEmail({
       to: email,
-      subject: 'Your Quote Request Received - Al Safa Global',
       template: 'quote-confirmation',
       context: {
         name,
@@ -46,7 +45,7 @@ router.post('/', [
         modelName: modelName || 'N/A',
         price: price || 'N/A'
       }
-    }).catch(err => console.error('Customer confirmation email failed:', err));
+    });
 
     res.status(200).json({
       success: true,
