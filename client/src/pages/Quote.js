@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { client } from '../sanityClient';
+import { segmentsPageQuery } from '../queries/segmentsPageQuery';
 import './Quote.css';
 
 const Quote = () => {
   const { state } = useLocation();
   const product = state || null; // { brandName, modelName, price }
 
+  const [segments, setSegments] = useState([]);
+
+  useEffect(() => {
+    client.fetch(segmentsPageQuery).then((data) => {
+      const list = (data?.segments || []).filter(s => s?.enabled !== false && s?.title);
+      setSegments(list);
+    });
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    segment: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,6 +46,7 @@ const Quote = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          segment: formData.segment,
           brandName: product?.brandName || '',
           modelName: product?.modelName || '',
           price: product?.price || ''
@@ -44,7 +57,7 @@ const Quote = () => {
 
       if (data.success) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '', segment: '' });
       } else {
         setSubmitStatus('error');
       }
@@ -67,7 +80,7 @@ const Quote = () => {
         >
           <div className="quote-header">
             <h1 className="quote-title">
-              Request a <span>Quote</span>
+              Request for <span>Enquiry</span>
             </h1>
             <p className="quote-subtitle">
               Fill in your details below and we'll get back to you with a competitive quotation.
@@ -139,6 +152,19 @@ const Quote = () => {
                 required
               />
             </div>
+            <div className="form-group">
+              <select
+                name="segment"
+                value={formData.segment}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Select Segment *</option>
+                {segments.map((seg) => (
+                  <option key={seg.title} value={seg.title}>{seg.title}</option>
+                ))}
+              </select>
+            </div>
 
             <motion.button
               type="submit"
@@ -147,7 +173,7 @@ const Quote = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
+              {isSubmitting ? 'Sending...' : 'Submit Enquiry Request'}
             </motion.button>
           </form>
         </motion.div>
