@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { client } from '../sanityClient';
@@ -71,6 +72,14 @@ const Quote = () => {
 
   return (
     <div className="quote-page">
+      <Helmet>
+        <title>Request for Enquiry | Al Safa Global - Dubai, UAE</title>
+        <meta name="description" content="Submit an enquiry to Al Safa Global for competitive pricing on procurement, supply chain, and trading solutions. We'll respond promptly with a quotation." />
+        <meta property="og:title" content="Request for Enquiry | Al Safa Global" />
+        <meta property="og:description" content="Submit an enquiry for competitive pricing on procurement and supply chain solutions." />
+        <meta property="og:url" content="https://alsafaglobal.com/quote" />
+        <link rel="canonical" href="https://alsafaglobal.com/quote" />
+      </Helmet>
       <div className="quote-container">
         <motion.div
           className="quote-form-wrapper"

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
@@ -223,6 +224,14 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      <Helmet>
+        <title>Al Safa Global - Procurement & Supply Chain Solutions | Dubai, UAE</title>
+        <meta name="description" content="Al Safa Global General Trading FZ LLC — your trusted partner for procurement, supply chain management, and trading solutions across UAE and the Middle East." />
+        <meta property="og:title" content="Al Safa Global - Procurement & Supply Chain Solutions" />
+        <meta property="og:description" content="Trusted partner for procurement, supply chain management, and trading solutions across UAE and the Middle East." />
+        <meta property="og:url" content="https://alsafaglobal.com" />
+        <link rel="canonical" href="https://alsafaglobal.com" />
+      </Helmet>
       {/* 1. Hero Section - Welcoming */}
       <HeroSection
         bannerImageUrl={homeData?.bannerImage?.asset?.url}

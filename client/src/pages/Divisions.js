@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
 import './Divisions.css';
@@ -182,6 +183,14 @@ const Divisions = () => {
 
   return (
     <div className="divisions-page">
+      <Helmet>
+        <title>Our Segments | Al Safa Global - Dubai, UAE</title>
+        <meta name="description" content="Explore Al Safa Global's business segments — from Oil & Gas and Defence to Healthcare, IT, and Supply Chain Solutions serving clients across the UAE and Middle East." />
+        <meta property="og:title" content="Our Segments | Al Safa Global" />
+        <meta property="og:description" content="Explore our business segments — Oil & Gas, Defence, Healthcare, IT, Supply Chain Solutions and more across UAE and Middle East." />
+        <meta property="og:url" content="https://alsafaglobal.com/divisions" />
+        <link rel="canonical" href="https://alsafaglobal.com/divisions" />
+      </Helmet>
       {/* Hero Section */}
       <section className="divisions-hero">
         <div className="container">

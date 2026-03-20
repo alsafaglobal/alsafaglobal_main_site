@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
@@ -181,6 +182,14 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <Helmet>
+        <title>About Us | Al Safa Global - Dubai, UAE</title>
+        <meta name="description" content="Learn about Al Safa Global General Trading FZ LLC — our mission, vision, and commitment to delivering world-class procurement and supply chain solutions in the UAE and Middle East." />
+        <meta property="og:title" content="About Us | Al Safa Global" />
+        <meta property="og:description" content="Our mission, vision, and commitment to delivering world-class procurement and supply chain solutions in the UAE and Middle East." />
+        <meta property="og:url" content="https://alsafaglobal.com/about" />
+        <link rel="canonical" href="https://alsafaglobal.com/about" />
+      </Helmet>
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">

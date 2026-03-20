@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiPhone, FiGlobe, FiClock, FiUsers } from 'react-icons/fi';
 import './Contact.css';
@@ -83,6 +84,14 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <Helmet>
+        <title>Contact Us | Al Safa Global - Dubai, UAE</title>
+        <meta name="description" content="Get in touch with Al Safa Global for procurement, supply chain, and trading enquiries. Reach us at info@alsafaglobal.com or visit our Dubai office." />
+        <meta property="og:title" content="Contact Us | Al Safa Global" />
+        <meta property="og:description" content="Get in touch with Al Safa Global for procurement, supply chain, and trading enquiries in Dubai, UAE." />
+        <meta property="og:url" content="https://alsafaglobal.com/contact" />
+        <link rel="canonical" href="https://alsafaglobal.com/contact" />
+      </Helmet>
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="container">

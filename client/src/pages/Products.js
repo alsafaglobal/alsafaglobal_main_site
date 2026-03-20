@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { client } from '../sanityClient';
@@ -128,6 +129,14 @@ const Products = () => {
 
   return (
     <div className="products-page">
+      <Helmet>
+        <title>Our Brands & Products | Al Safa Global - Dubai, UAE</title>
+        <meta name="description" content="Browse Al Safa Global's range of sourced brands and products — laptops, electronics, industrial equipment and more. Request a quote directly from the product page." />
+        <meta property="og:title" content="Our Brands & Products | Al Safa Global" />
+        <meta property="og:description" content="Browse our range of sourced brands and products. Request a quote directly from the product page." />
+        <meta property="og:url" content="https://alsafaglobal.com/products" />
+        <link rel="canonical" href="https://alsafaglobal.com/products" />
+      </Helmet>
       {/* Hero Section */}
       <section className="products-hero">
         <div className="container">
