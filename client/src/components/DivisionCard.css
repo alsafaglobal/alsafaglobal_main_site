@@ -39,7 +39,7 @@
   margin-bottom: var(--space-lg);
   font-weight: 400;
   flex-grow: 1;
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -51,7 +51,7 @@
 /* Mobile word spacing consistency for division cards */
 @media (max-width: 767px) {
   .division-card p {
-    text-align: justify !important;
+    text-align: left !important;
     word-spacing: 0.18em !important;
     letter-spacing: 0.015em !important;
     text-justify: inter-word !important;
@@ -68,7 +68,7 @@
 
 @media (max-width: 480px) {
   .division-card p {
-    text-align: justify !important;
+    text-align: left !important;
     word-spacing: 0.25em !important;
     letter-spacing: 0.025em !important;
     text-justify: distribute !important;
