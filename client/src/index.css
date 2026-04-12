@@ -177,11 +177,7 @@ p {
   line-height: var(--leading-relaxed);
   font-weight: 400;
   word-wrap: break-word;
-  text-align: justify;
-  word-spacing: var(--word-spacing);
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
+  text-align: left;
 }
 
 /* Specific testimonial text justification */
@@ -189,7 +185,7 @@ p {
 .testimonial-card .testimonial-text,
 .testimonial-section .testimonial-text,
 [class*="testimonial"] .testimonial-text {
-  text-align: justify;
+  text-align: left;
   word-spacing: normal;
   hyphens: none;
   -webkit-hyphens: none;
@@ -375,7 +371,7 @@ a:hover {
 
 /* Text Utilities */
 .text-center { text-align: center; }
-.text-left { text-align: justify; }
+.text-left { text-align: left; }
 .text-right { text-align: right; }
 
 .text-xs { font-size: var(--text-xs); }
@@ -581,7 +577,7 @@ a:hover {
 
 /* Text justification for descriptions following headings */
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-  text-align: justify;
+  text-align: left;
 }
 
 /* Also justify paragraphs within specific content areas */
@@ -596,7 +592,7 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 .about-hero-content p:not(.hero-subtitle),
 .contact-info-section p,
 .trusted-brands p {
-  text-align: justify;
+  text-align: left;
 }
 
 /* Focus States */
@@ -651,7 +647,7 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 /* Text Utilities */
 .text-justify {
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -664,7 +660,7 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 }
 
 .text-justify-tight {
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -674,7 +670,7 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 }
 
 .text-justify-loose {
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;

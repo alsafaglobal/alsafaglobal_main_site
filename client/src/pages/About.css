@@ -52,7 +52,7 @@
   font-weight: 600;
   opacity: 1;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: justify !important;
+  text-align: left !important;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -169,7 +169,7 @@
   line-height: 1.6;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -231,7 +231,7 @@
   line-height: 1.6;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -292,7 +292,7 @@
   margin: 0;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: justify;
+  text-align: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
