@@ -86,6 +86,7 @@ const HeroSection = ({
                       color: brandColor === 'gold'
                         ? '#f59e0b'
                         : 'currentColor',
+                      whiteSpace: 'nowrap',
                     }}
                     data-cms-key="hero.brandText"
                     data-cms-field="brandColor"
