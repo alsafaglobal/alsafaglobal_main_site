@@ -60,12 +60,14 @@ const HeroSection = ({
                   if (parts.length > 1) {
                     return (
                       <>
-                        {parts[0]}
+                        {parts[0].trim()}
+                        <br />
                         <span
                           style={{
                             color: brandColor === 'gold'
                               ? '#f59e0b'
                               : 'currentColor',
+                            whiteSpace: 'nowrap',
                           }}
                           data-cms-key="hero.brandText"
                           data-cms-field="brandColor"
