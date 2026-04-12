@@ -80,6 +80,7 @@ const HeroSection = ({
               ) : (
                 <>
                   Welcome to{' '}
+                  <br />
                   <span
                     style={{
                       color: brandColor === 'gold'
