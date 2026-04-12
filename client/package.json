@@ -19,6 +19,7 @@
     "react-intersection-observer": "^9.4.3",
     "react-router-dom": "^6.8.1",
     "styled-components": "^5.3.10",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,7 +47,5 @@
     ]
   },
   "proxy": "http://localhost:5000",
-  "devDependencies": {
-    "react-scripts": "^5.0.1"
-  }
+  "devDependencies": {}
 }
