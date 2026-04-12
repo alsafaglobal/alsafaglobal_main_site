@@ -14,7 +14,7 @@
   font-size: var(--text-lg);
   margin-bottom: var(--space-lg); /* Reduced from var(--space-xl) */
   font-weight: 500;
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -71,7 +71,7 @@
   line-height: 1.6;
   margin-bottom: var(--space-lg);
   font-weight: 400;
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;

@@ -37,7 +37,7 @@
   font-size: 1.1rem;
   color: var(--text-primary);
   line-height: 1.6;
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -53,7 +53,7 @@
   font-weight: 600;
   opacity: 1;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -71,7 +71,7 @@
   font-weight: 600;
   opacity: 1;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -137,7 +137,7 @@
   line-height: 1.6;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -262,7 +262,7 @@
   line-height: 1.6;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -327,7 +327,7 @@
   #office-construction .division-description,
   #construction-infrastructure .division-description,
   #aviation-marine .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     text-align-last: left !important;
     word-spacing: 0.2em !important;
     letter-spacing: 0.02em !important;
@@ -386,7 +386,7 @@
   #office-construction .division-description,
   #construction-infrastructure .division-description,
   #aviation-marine .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     text-align-last: left !important;
     word-spacing: 0.25em !important;
     letter-spacing: 0.025em !important;
@@ -411,7 +411,7 @@
   .division-section[id="office-construction"] .division-description,
   .division-section[id="construction-infrastructure"] .division-description,
   .division-section[id="aviation-marine"] .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     word-spacing: 0.3em !important;
     letter-spacing: 0.03em !important;
     white-space: normal !important;
@@ -422,7 +422,7 @@
 /* Specific fix for aviation-marine description word spacing inconsistency */
 @media (max-width: 767px) {
   #aviation-marine .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     word-spacing: 0.05em !important;
     letter-spacing: 0.005em !important;
     text-justify: inter-word !important;
@@ -441,7 +441,7 @@
 
 @media (max-width: 480px) {
   #aviation-marine .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     word-spacing: 0.03em !important;
     letter-spacing: 0.003em !important;
     text-justify: inter-word !important;
@@ -462,7 +462,7 @@
 /* Universal mobile word spacing for consistent display */
 @media screen and (max-width: 768px) {
   .division-section .division-description {
-    text-align: left !important;
+    text-align: justify !important;
     word-spacing: normal !important;
   }
   

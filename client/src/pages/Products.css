@@ -29,7 +29,7 @@
   font-size: 1.1rem;
   color: var(--text-primary);
   line-height: 1.6;
-  text-align: left;
+  text-align: justify;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
