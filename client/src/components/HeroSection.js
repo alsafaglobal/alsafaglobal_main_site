@@ -46,56 +46,6 @@ const HeroSection = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.h1 
-              className="hero-title"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              {heroTitle ? (
-                (() => {
-                  const brandTextValue = brandText || "Al Safa Global";
-                  const parts = heroTitle.split(brandTextValue);
-                  if (parts.length > 1) {
-                    return (
-                      <>
-                        {parts[0]}
-                        <span
-                          style={{
-                            color: brandColor === 'gold'
-                              ? '#f59e0b'
-                              : 'currentColor',
-                          }}
-                          data-cms-key="hero.brandText"
-                          data-cms-field="brandColor"
-                        >
-                          {brandTextValue}
-                        </span>
-                        {parts[1]}
-                      </>
-                    );
-                  }
-                  return <span>{heroTitle}</span>;
-                })()
-              ) : (
-                <>
-                  Welcome to{' '}
-                  <br />
-                  <span
-                    style={{
-                      color: brandColor === 'gold'
-                        ? '#f59e0b'
-                        : 'currentColor',
-                      whiteSpace: 'nowrap',
-                    }}
-                    data-cms-key="hero.brandText"
-                    data-cms-field="brandColor"
-                  >
-                    {brandText || 'Al Safa Global'}
-                  </span>
-                </>
-              )}
-            </motion.h1>
             
             <motion.p 
               className="hero-subtitle-stylish"
