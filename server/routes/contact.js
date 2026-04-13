@@ -36,9 +36,11 @@ const validateContact = [
     .optional()
     .isIn([
       'Office & Construction',
+      'Office, Construction & Infrastructure',
       'Oil & Gas',
       'Industrial & Manufacturing',
       'Aviation & Marine',
+      'Aviation, Marine & Shipping',
       'Defence Sector',
       'General Inquiry'
     ])
