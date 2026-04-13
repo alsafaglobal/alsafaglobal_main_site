@@ -139,34 +139,6 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const handleAdmin = async () => {
-    const pwd = window.prompt("Enter Admin Password:");
-
-    if (!pwd) return;
-
-    if (pwd !== process.env.REACT_APP_ADMIN_PASSWORD) {
-      alert("Incorrect Password 😐");
-      return;
-    }
-
-    const choice = window.prompt(
-      "Type one option:\n\n1 = CMS\n2 = Analytics"
-    );
-
-    if (!choice) return;
-
-    if (choice === "1") {
-      const url = process.env.REACT_APP_SANITY_STUDIO_URL;
-      if (url) window.location.href = url;
-      else alert("CMS URL not configured");
-    }
-
-    if (choice === "2") {
-      const url = process.env.REACT_APP_ANALYTICS_URL;
-      if (url) window.location.href = url;
-      else alert("Analytics URL not configured");
-    }
-  };
 
   return (
     <motion.header 
