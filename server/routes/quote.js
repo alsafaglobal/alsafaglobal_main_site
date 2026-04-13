@@ -14,17 +14,18 @@ router.post('/', [
       return res.status(400).json({ success: false, message: errors.array()[0].msg });
     }
 
-    const { name, email, phone, brandName, modelName, price } = req.body;
+    const { name, email, phone, segment, brandName, modelName, price } = req.body;
 
     // Send to info@alsafaglobal.com
     await sendEmail({
       to: 'info@alsafaglobal.com',
-      subject: `New Quote Request - ${brandName || 'Product'} ${modelName || ''}`.trim(),
+      subject: `New Quote Request - ${brandName || segment || 'Enquiry'}`.trim(),
       template: 'quote-request',
       context: {
         name,
         email,
         phone,
+        segment: segment || 'N/A',
         brandName: brandName || 'N/A',
         modelName: modelName || 'N/A',
         price: price || 'N/A',

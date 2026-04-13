@@ -252,6 +252,7 @@ const emailTemplates = {
             <p><strong>Name:</strong> ${context.name}</p>
             <p><strong>Email:</strong> ${context.email}</p>
             <p><strong>Phone:</strong> ${context.phone}</p>
+            <p><strong>Segment:</strong> ${context.segment || 'N/A'}</p>
             <p><strong>Date:</strong> ${context.date}</p>
           </div>
 
