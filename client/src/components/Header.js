@@ -354,16 +354,6 @@ const Header = () => {
                   )}
                 </motion.li>
               ))}
-              <motion.li 
-                className="nav-item"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navItems.length * 0.1 }}
-              >
-                <button className="nav-link" onClick={handleAdmin}>
-                  Admin
-                </button>
-              </motion.li>
             </ul>
           </nav>
 
@@ -562,16 +552,6 @@ const Header = () => {
                       )}
                     </motion.li>
                   ))}
-                  <motion.li 
-                    className="mobile-nav-item"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navItems.length * 0.1 }}
-                  >
-                    <button className="mobile-nav-link" onClick={handleAdmin}>
-                      Admin
-                    </button>
-                  </motion.li>
                 </ul>
                 <motion.div 
                   className="mobile-cta"
